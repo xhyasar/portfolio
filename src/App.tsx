@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage';
 
 const App: React.FC = () => (
     <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/portfolio" element={<Layout />}>
             <Route index element={<HomePage />} />
         </Route>
     </Routes>
