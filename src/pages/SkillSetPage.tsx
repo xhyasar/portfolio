@@ -3,7 +3,9 @@ import SkillSet, {sampleTechData} from "../components/SkillSet.tsx";
 
 const SkillSetPage: React.FC = () => {
     return (
-        <SkillSet data = {sampleTechData} />
+        <div className="max-w-3xl mx-auto">
+            <SkillSet data = {sampleTechData} />
+        </div>
     );
 };
 

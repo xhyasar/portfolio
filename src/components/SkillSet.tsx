@@ -17,7 +17,7 @@ interface SkillSetProps {
 
 const SkillSet: React.FC<SkillSetProps> = ({ data }) => {
     return (
-        <div className="flex flex-row flex-wrap justify-center gap-x-12 gap-y-8 p-6">
+        <div className="relative flex flex-row flex-wrap justify-center gap-x-12 gap-y-8 p-6">
             {data.map((section) => (
                 <div
                     key={section.title}

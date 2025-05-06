@@ -13,8 +13,7 @@ const HeroPage: React.FC = () => {
             >
                 <h1 className="text-5xl font-bold mb-4">Hoş Geldiniz!</h1>
                 <p className="text-xl text-gray-600">
-                    Endüstriyel Tasarım ve Front-End Geliştirme tutkusuyla
-                    yaratıcı çözümler üretiyorum.
+                    Endüstriyel Tasarım ve Front-End Geliştirme tutkusuyla yaratıcı çözümler üretiyorum.
                 </p>
             </motion.div>
             <Player
