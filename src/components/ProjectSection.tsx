@@ -6,6 +6,13 @@ export interface Project {
     title: string;
     description: string;
     images: string[];
+    links?: ProjectLink[];
+}
+
+export interface ProjectLink {
+    name: string;
+    icon: string;
+    url: string;
 }
 
 interface ProjectsSectionProps {
@@ -95,6 +102,22 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
                     <div className="space-y-4">
                         <h3 className="text-2xl font-semibold">{proj.title}</h3>
                         <p className="text-gray-700">{proj.description}</p>
+                        {/* Link ikonları */}
+                        {proj.links && (
+                            <div className="flex space-x-4 mt-4">
+                                {proj.links.map((link) => (
+                                    <a
+                                        key={link.name}
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center space-x-2 text-blue-600 hover:underline"
+                                    >
+                                        <img src={link.icon} alt={`${link.name}`} className="w-8 h-8" />
+                                    </a>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     {/* Carousel */}
@@ -115,7 +138,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
                                     key={idx}
                                     src={src}
                                     alt={`${proj.title} ${idx + 1}`}
-                                    className="w-64 h-40 object-cover flex-shrink-0 rounded-lg cursor-pointer"
+                                    className="w-64 h-40 object-fill flex-shrink-0 rounded-lg cursor-pointer"
                                     onClick={() => openLightbox(proj.images, idx)}
                                 />
                             ))}
@@ -153,9 +176,37 @@ export const sampleProjects: Project[] = [
     },
     {
         id: 2,
-        title: 'Algida IceCream ',
+        title: 'Algida IceCream',
         description: 'Algida’nın ikonik kırmızı-beyaz paletini ve akıcı, kemer formundaki modüler yapıyı vurgulayarak entegre soğutma ünitesi, hijyenik cam koruma ve LED aydınlatmalı tabela ile stand tasarımını tamamladım.',
         images: ['projects/icecream/icecream01.jpg', 'projects/icecream/icecream02.jpg', 'projects/icecream/icecream03.jpg', 'projects/icecream/icecream04.jpg'],
+    },
+    {
+        id: 3,
+        title: 'Avon Anew Serisi',
+        description: 'Avon markasına ait olan Anew Protinol içerikli serisi için, ürünlerin şıklığını ve zarafetini vurgulayan bir pleksiden malzeme kullanılan stand tasarımı geliştirdim. Stand, ürünlerin etkileyici bir şekilde sergilenmesini sağlarken, markanın lüks imajını da yansıtmaktadır.',
+        images: ['projects/avon/anew01.png', 'projects/avon/anew02.png'],
+    },
+    {
+        id: 4,
+        title: 'Avon Power Stay',
+        description: 'Mağazada şeffaf pleksiden oluşan modern bir stand kullandım; bu sayede ürünler zarafetini ön plana çıkarırken markanın sofistike ve kalıcı imajını da güçlendirdim.',
+        images: ['projects/avon/avon01.png', 'projects/avon/avon02.png'],
+    },
+    {
+        id: 5,
+        title: 'Saka Fuar Standı',
+        description: 'Saka’nın “doğallık ve ferahlık” vurgusunu pekiştiren, ahşap dokulu zemin ve çatıyla suyun saf imajını çağrıştıran LED aydınlatmalı bir fuar standı tasarladım; böylece ürünler tazelik hissiyle öne çıkarken markanın güvenilir ve sıcak duruşunu da güçlendirdim.',
+        images: ['projects/saka/saka01.png', 'projects/saka/saka02.png', 'projects/saka/saka03.png', 'projects/saka/saka04.png'],
+    },
+    {
+        id: 6,
+        title: 'Shelvia Warehouse Management',
+        description: 'Depo stok yönetimini basitleştirmek için tasarladığım bu panel, Gerçek zamanlı KPI kartları ile anlık envanter takibi, Etkileşimli filtreler ve ürün güncelleme formları ile hızlı işlem, Hem masaüstü hem de mobil uyumlu arayüzüyle her cihazda kullanılabilirliközelliklerini içeriyor.Projenin hâlihazırda wireframe’leri, yüksek-doğruluklu mockup’ları ve design-system bileşenleri tamamlıyorum; geliştirme aşamasına geçerek React + Tailwind tabanlı bir prototip oluşturmaya hazırlanıyorum.',
+        images: ['projects/shelvia/LoginScreen.png', 'projects/shelvia/WarehouseList.png', 'projects/shelvia/WarehouseDetail.png', 'projects/shelvia/ProductList.png'],
+        links: [
+            { icon: 'icons/github.svg', name: 'GitHub', url: 'https://github.com/xhyasar/AspireLearning' },
+            { icon: 'icons/figma.svg', name: 'Figma', url: 'https://www.figma.com/design/W3Hp5fvj5673IR97RD5vdc/Shelvia-Warehouse-Management?node-id=2-276&p=f&t=oC6wM2v8FwsOwCHW-0'},
+        ]
     },
 ];
 

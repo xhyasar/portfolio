@@ -6,10 +6,10 @@ import Right from "./Right.tsx";
 
 const Layout: React.FC = () => (
     <div className="relative min-h-screen overflow-hidden bg-main">
-        <div className="max-[1380px]:hidden">
+        <div className="max-[1650px]:hidden">
             <Left />
         </div>
-        <div className="max-[1380px]:hidden">
+        <div className="max-[1650px]:hidden">
             <Right />
         </div>
         {/* Ana içerik alanı */}
