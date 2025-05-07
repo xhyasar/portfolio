@@ -1,8 +1,8 @@
 // src/components/Layout.tsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Left from "./Left.tsx";
-import Right from "./Right.tsx";
+import Left from "./components/Left.tsx";
+import Right from "./components/Right.tsx";
 
 const Layout: React.FC = () => (
     <div className="relative min-h-screen overflow-hidden bg-main">

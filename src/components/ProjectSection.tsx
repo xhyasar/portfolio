@@ -170,43 +170,43 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
 export const sampleProjects: Project[] = [
     {
         id: 1,
-        title: 'Clear',
-        description: 'Bu projede, Clear’ın “Hyaluron Nem Terapisi”  şampuan, saç kremi ve bakım spreyi ürünlerini şık ve işlevsel bir şekilde sergilemek için modüler bir raf tepsisi ve wobbler tasarımı geliştirdim.',
-        images: ['projects/clear/clear01.png', 'projects/clear/clear02.png'],
-    },
-    {
-        id: 2,
-        title: 'Algida IceCream',
-        description: 'Algida’nın ikonik kırmızı-beyaz paletini ve akıcı, kemer formundaki modüler yapıyı vurgulayarak entegre soğutma ünitesi, hijyenik cam koruma ve LED aydınlatmalı tabela ile stand tasarımını tamamladım.',
-        images: ['projects/icecream/icecream01.jpg', 'projects/icecream/icecream02.jpg', 'projects/icecream/icecream03.jpg', 'projects/icecream/icecream04.jpg'],
-    },
-    {
-        id: 3,
-        title: 'Avon Anew Serisi',
-        description: 'Avon markasına ait olan Anew Protinol içerikli serisi için, ürünlerin şıklığını ve zarafetini vurgulayan bir pleksiden malzeme kullanılan stand tasarımı geliştirdim. Stand, ürünlerin etkileyici bir şekilde sergilenmesini sağlarken, markanın lüks imajını da yansıtmaktadır.',
-        images: ['projects/avon/anew01.png', 'projects/avon/anew02.png'],
-    },
-    {
-        id: 4,
-        title: 'Avon Power Stay',
-        description: 'Mağazada şeffaf pleksiden oluşan modern bir stand kullandım; bu sayede ürünler zarafetini ön plana çıkarırken markanın sofistike ve kalıcı imajını da güçlendirdim.',
-        images: ['projects/avon/avon01.png', 'projects/avon/avon02.png'],
-    },
-    {
-        id: 5,
-        title: 'Saka Fuar Standı',
-        description: 'Saka’nın “doğallık ve ferahlık” vurgusunu pekiştiren, ahşap dokulu zemin ve çatıyla suyun saf imajını çağrıştıran LED aydınlatmalı bir fuar standı tasarladım; böylece ürünler tazelik hissiyle öne çıkarken markanın güvenilir ve sıcak duruşunu da güçlendirdim.',
-        images: ['projects/saka/saka01.png', 'projects/saka/saka02.png', 'projects/saka/saka03.png', 'projects/saka/saka04.png'],
-    },
-    {
-        id: 6,
         title: 'Shelvia Warehouse Management',
-        description: 'Depo stok yönetimini basitleştirmek için tasarladığım bu panel, Gerçek zamanlı KPI kartları ile anlık envanter takibi, Etkileşimli filtreler ve ürün güncelleme formları ile hızlı işlem, Hem masaüstü hem de mobil uyumlu arayüzüyle her cihazda kullanılabilirliközelliklerini içeriyor.Projenin hâlihazırda wireframe’leri, yüksek-doğruluklu mockup’ları ve design-system bileşenleri tamamlıyorum; geliştirme aşamasına geçerek React + Tailwind tabanlı bir prototip oluşturmaya hazırlanıyorum.',
+        description: 'Designed to simplify warehouse stock management, this panel features real-time KPI cards for instant inventory tracking, interactive filters and product update forms for fast operations, and a responsive interface optimized for both desktop and mobile devices. The project already includes wireframes, high-fidelity mockups, and design system components; I am now preparing to move into the development phase by building a React + Tailwind-based prototype.',
         images: ['projects/shelvia/LoginScreen.png', 'projects/shelvia/WarehouseList.png', 'projects/shelvia/WarehouseDetail.png', 'projects/shelvia/ProductList.png'],
         links: [
             { icon: 'icons/github.svg', name: 'GitHub', url: 'https://github.com/xhyasar/AspireLearning' },
             { icon: 'icons/figma.svg', name: 'Figma', url: 'https://www.figma.com/design/W3Hp5fvj5673IR97RD5vdc/Shelvia-Warehouse-Management?node-id=2-276&p=f&t=oC6wM2v8FwsOwCHW-0'},
         ]
+    },
+    {
+        id: 2,
+        title: 'Clear',
+        description: 'In this project, I designed a modular shelf tray and a wobbler to stylishly and functionally display Clear’s “Hyaluron Moisture Therapy” shampoo, conditioner, and care spray products.',
+        images: ['projects/clear/clear01.png', 'projects/clear/clear02.png'],
+    },
+    {
+        id: 3,
+        title: 'Saka Exhibition Stand',
+        description: 'I designed an LED-lit exhibition stand for Saka that reinforces its emphasis on “naturalness and freshness,” featuring a wooden-textured floor and roof to evoke the pure image of water. This setup highlights the products with a sense of freshness while strengthening the brand’s trustworthy and warm presence.',
+        images: ['projects/saka/saka01.png', 'projects/saka/saka02.png', 'projects/saka/saka03.png', 'projects/saka/saka04.png'],
+    },
+    {
+        id: 4,
+        title: 'Avon Anew Series',
+        description: 'For Avon’s Anew Protinol-infused line, I developed a stand design using plexiglass material to highlight the elegance and sophistication of the products. The stand not only ensures an impressive product display but also reflects the brand’s luxurious image.',
+        images: ['projects/avon/anew01.png', 'projects/avon/anew02.png'],
+    },
+    {
+        id: 5,
+        title: 'Avon Power Stay',
+        description: 'I used a modern stand made of transparent plexiglass in the store; this allowed the products to highlight their elegance while reinforcing the brand’s sophisticated and lasting image.',
+        images: ['projects/avon/avon01.png', 'projects/avon/avon02.png'],
+    },
+    {
+        id: 6,
+        title: 'Algida IceCream',
+        description: 'By emphasizing Algida’s iconic red-and-white palette and the flowing, belt-shaped modular structure, I completed the stand design with an integrated cooling unit, hygienic glass protection, and an LED-lit sign.',
+        images: ['projects/icecream/icecream01.jpg', 'projects/icecream/icecream02.jpg', 'projects/icecream/icecream03.jpg', 'projects/icecream/icecream04.jpg'],
     },
 ];
 
