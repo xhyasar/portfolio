@@ -91,7 +91,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
 
     return (
         <section id="projects" className="space-y-16 px-4 py-12">
-            <h2 className="text-3xl font-bold text-center mb-8">Projelerim</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
 
             {projects.map((proj) => (
                 <div
@@ -121,7 +121,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
                     </div>
 
                     {/* Carousel */}
-                    <div className="relative">
+                    <div className="flex relative items-center justify-center h-64 overflow-hidden">
                         <button
                             onClick={() => scroll(proj.id, 'left')}
                             className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-75 p-2 rounded-full shadow-lg z-10 focus:outline-none"
