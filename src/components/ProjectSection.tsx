@@ -31,7 +31,7 @@ interface LightboxProps {
 }
 
 const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onPrev, onNext }) => {
-    // Render lightbox via portal to avoid parent CSS interference
+
     return ReactDOM.createPortal(
         <div className="fixed inset-0 z-50 flex items-center justify-center">
             {/* Backdrop */}
@@ -102,7 +102,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
                     <div className="space-y-4">
                         <h3 className="text-2xl font-semibold">{proj.title}</h3>
                         <p className="text-gray-700">{proj.description}</p>
-                        {/* Link ikonları */}
+
                         {proj.links && (
                             <div className="flex space-x-4 mt-4">
                                 {proj.links.map((link) => (
@@ -120,7 +120,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
                         )}
                     </div>
 
-                    {/* Carousel */}
+
                     <div className="flex relative items-center justify-center h-64 overflow-hidden">
                         <button
                             onClick={() => scroll(proj.id, 'left')}
@@ -166,7 +166,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
     );
 };
 
-// Example usage and basic test data
+
 export const sampleProjects: Project[] = [
     {
         id: 1,
