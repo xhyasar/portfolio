@@ -13,8 +13,8 @@ const HeroSection: React.FC<Props> = ({style}) => (
         <h1 className="px-10 text-header text-3xl font-semibold mb-4 ">
             About Me!
         </h1>
-        <div className="flex flex-row items-center justify-center gap-6 h-full">
-            <div className=" flex w-full gap-4 mt-4">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 h-full">
+            <div className="flex flex-col md:flex-row w-full gap-4 mt-4">
                 <div className="flex-1">
                     <img
                         src="hazal.png"
@@ -24,7 +24,7 @@ const HeroSection: React.FC<Props> = ({style}) => (
                 </div>
                 {/* Buradaki div’in içini aşağıdaki gibi değiştir */}
                 <div className="flex-1 space-y-4">
-                    <h1 className="text-2xl text-header font-bold">Hello There,</h1>
+                    <h1 className="text-2xl text-header font-bold">Hello,</h1>
                     <p className="text-body">
                         I’m Hazal, a graduate of Industrial Product Design. I’m currently focused on UI/UX design and Front-End development.
                     </p>
