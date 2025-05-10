@@ -2,6 +2,10 @@
 
 @theme {
   --color-main: #EAF2E3;
+  --color-text-main: #0F4C75;
+  --color-body: #666666;
+  --color-header: #333333;
+
 }
 @keyframes story-progress {
   from { width: 0%; }

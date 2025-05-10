@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 const HeroPage: React.FC = () => {
     return (
         <section className="min-h-screen flex justify-center items-center px-4">
+
             {/* wrapper: tam genişlik + max width, ortalanmış */}
             <div className="w-full max-w-5xl flex flex-col items-center space-y-8">
 
@@ -15,22 +16,16 @@ const HeroPage: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="w-full text-center"
                 >
-                    <h1 className="text-7xl font-bold mb-4 text-[#0B365E]">Hazal Yaşar</h1>
-                    <div className="text-4xl font-medium flex items-center justify-center space-x-2">
+                    <h1 className="text-5xl font-bold mb-4 text-[#34495e]">Hazal Yaşar</h1>
+                    <div className="text-3xl font-medium flex items-center justify-center space-x-2">
                         <motion.span
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                            className="text-[#A78BFA]"
+                            className="text-[#663399]"
                         >
                             Designer
                         </motion.span>
-                        <span className="text-opacity-50 text-[#6B7280]">&amp;</span>
+                        <span className="text-opacity-50 text-[#7f8c8d]">&amp;</span>
                         <motion.span
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
-                            className="text-[#60A5FA]"
+                            className="text-[#4682B4]"
                         >
                             Developer
                         </motion.span>

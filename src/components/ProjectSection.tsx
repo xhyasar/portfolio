@@ -128,8 +128,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({projects = []}) => {
     }
 
     return (
-        <section id="projects" className="space-y-16 px-4 py-12">
-            <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
+        <section id="projects" className="space-y-16 p-6">
+            <h2 className="text-3xl font-bold text-center mb-8"></h2>
 
             {projects.map((proj) => (
                 <div
@@ -138,8 +138,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({projects = []}) => {
                 >
                     {/* Details */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-semibold">{proj.title}</h3>
-                        <p className="text-gray-700">{proj.description}</p>
+                        <h3 className="text-header text-2xl font-semibold">{proj.title}</h3>
+                        <p className="text-body">{proj.description}</p>
 
                         {proj.links && (
                             <div className="flex space-x-4 mt-4">

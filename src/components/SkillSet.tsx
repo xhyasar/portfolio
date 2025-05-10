@@ -23,7 +23,7 @@ const SkillSet: React.FC<SkillSetProps> = ({ data }) => {
                     key={section.title}
                     className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center w-72"
                 >
-                    <h3 className="text-xl font-semibold mb-4 text-center">
+                    <h3 className=" text-header text-xl font-semibold mb-4 text-center">
                         {section.title}
                     </h3>
                     <div className="flex justify-center flex-wrap gap-x-8 gap-y-4">

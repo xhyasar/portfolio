@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactPage: React.FC = () => (
     <section className="flex items-center justify-center bg-transparent">
-        <div className="text-black text-center max-w-2xl p-4">
+        <div className="text-header text-center max-w-2xl p-4">
             <h2 className="text-3xl font-semibold mb-3">To get in touch with me</h2>
             <div className="flex items-center justify-center gap-5">
                 <a
