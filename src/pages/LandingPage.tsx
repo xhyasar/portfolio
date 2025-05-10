@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const LandingPage: React.FC = () => {
     return (
-        <section className="min-h-screen flex justify-center items-center px-4">
+        <section className="px-4 py-8 md:min-h-screen md:flex md:justify-center md:items-center">
 
             {/* wrapper: tam genişlik + max width, ortalanmış */}
             <div className="w-full max-w-5xl flex flex-col items-center space-y-8">
