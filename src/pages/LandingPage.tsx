@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const LandingPage: React.FC = () => {
     return (
-        <section className="px-4 py-8 md:min-h-screen md:flex md:justify-center md:items-center">
+        <section className="px-4 py-8 relative flex flex-wrap">
 
             {/* wrapper: tam genişlik + max width, ortalanmış */}
             <div className="w-full max-w-5xl flex flex-col items-center space-y-8">
@@ -15,8 +15,8 @@ const LandingPage: React.FC = () => {
                     transition={{ duration: 0.8 }}
                     className="w-full text-center"
                 >
-                    <h1 className="text-5xl font-bold mb-4 text-[#34495e]">Hazal Yaşar</h1>
-                    <div className="text-3xl font-medium flex items-center justify-center space-x-2">
+                    <h1 className="text-5xl font-bold m-4 text-[#34495e]">Hazal Yaşar</h1>
+                    <div className="text-3xl mb-8 ml-5 font-medium flex items-center justify-center space-x-2">
                         <motion.span
                             className="text-[#663399]"
                         >

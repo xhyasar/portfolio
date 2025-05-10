@@ -8,7 +8,7 @@ interface Props {
 const HeroSection: React.FC<Props> = ({style}) => (
     <motion.div
         style={style}
-        className="min-h-screen flex flex-col px-4"
+        className="relative flex-col flex-wrap px-4"
     >
         <h1 className="px-10 text-header text-3xl font-semibold mb-4 ">
             About Me!

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
 export interface LightboxProps {
@@ -23,12 +23,7 @@ const Lightbox: React.FC<LightboxProps> = ({
 
     return ReactDOM.createPortal(
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black bg-opacity-75 p-4">
-            <button
-                onClick={onClose}
-                className="absolute right-3 top-1 text-white text-4xl focus:outline-none"
-            >
-                ×
-            </button>
+
 
             <div className="flex space-x-1 mb-4 w-full max-w-[90vw]">
                 {images.map((_, idx) => (
@@ -36,15 +31,21 @@ const Lightbox: React.FC<LightboxProps> = ({
                         key={idx}
                         className="flex-1 h-1 bg-[#686868] bg-opacity-30 rounded overflow-hidden"
                     >
-                        {idx < currentIndex && <div className="h-full bg-white" />}
+                        {idx < currentIndex && <div className="h-full bg-white"/>}
                         {idx === currentIndex && (
                             <div
                                 className="h-full bg-white story-progress"
-                                style={{ animationDuration: '10s' }}
+                                style={{animationDuration: '10s'}}
                             />
                         )}
                     </div>
                 ))}
+                <button
+                    onClick={onClose}
+                    className="h-1 z-51 text-white text-4xl focus:outline-none"
+                >
+                    ×
+                </button>
             </div>
 
             <div className="relative w-[90vw] h-[90vh] flex items-center justify-center">
