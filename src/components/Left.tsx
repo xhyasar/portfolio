@@ -7,7 +7,7 @@ interface Props { style?: MotionStyle }
 const Left: React.FC<Props> = ({ style }) => (
     <motion.div
         style={style}
-        className="fixed top-0 left-0 w-[320px] h-screen hidden lg:block z-10"
+        className="fixed top-0 left-0 max-w-63 h-screen hidden lg:block z-10"
     >
         <img
             src={image}

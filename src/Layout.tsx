@@ -1,20 +1,21 @@
 // src/components/Layout.tsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Left from "./components/Left.tsx";
-import Right from "./components/Right.tsx";
+import Left from './components/Left';
+import Right from './components/Right';
 
 const Layout: React.FC = () => (
     <div className="relative min-h-screen overflow-hidden bg-main">
-        <div className="max-[1650px]:hidden">
+        {/* Sol/Sağ paneli: 1500px altındayken gizle */}
+        <div className="max-[1500px]:hidden">
             <Left />
         </div>
-        <div className="max-[1650px]:hidden">
+        <div className="max-[1500px]:hidden">
             <Right />
         </div>
 
-        <main className="relative z-20 mx-auto max-w-5xl px-4">
-
+        {/* Ana içerik */}
+        <main className="relative z-20 mx-auto w-full max-w-5xl px-4">
             <Outlet />
         </main>
     </div>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
 export interface Project {
@@ -30,35 +30,73 @@ interface LightboxProps {
     onNext: () => void;
 }
 
-const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onPrev, onNext }) => {
+const Lightbox: React.FC<LightboxProps> = ({
+                                               images,
+                                               currentIndex,
+                                               onClose,
+                                               onPrev,
+                                               onNext,
+                                           }) => {
+    useEffect(() => {
+        const timer = setTimeout(onNext, 10_000);
+        return () => clearTimeout(timer);
+    }, [currentIndex, onNext]);
 
     return ReactDOM.createPortal(
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-            {/* Backdrop */}
-            <div className="absolute inset-0 bg-black bg-opacity-75" onClick={onClose} />
-            {/* Content */}
-            <div className="relative z-10 flex items-center max-w-[90vw] max-h-[90vh]">
-                <button onClick={onPrev} className="text-white text-4xl px-4 focus:outline-none">‹</button>
-                <img
-                    src={images[currentIndex]}
-                    alt={`Image ${currentIndex + 1}`}
-                    className="max-w-full max-h-full object-contain"
-                />
-                <button onClick={onNext} className="text-white text-4xl px-4 focus:outline-none">›</button>
-
-            </div>
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black bg-opacity-75 p-4">
+            {/* Kapatma tuşu */}
             <button
                 onClick={onClose}
-                className="absolute top-0 right-2 text-white text-3xl focus:outline-none"
+                className="absolute right-3 top-3 text-white text-4xl focus:outline-none"
             >
                 ×
             </button>
+
+            {/* ◀ GÖSTERGELER BURADA, FOTOĞRAFIN ÜSTÜNE GELMEZ */}
+            <div className="flex space-x-1 mb-4 w-full max-w-[90vw]">
+                {images.map((_, idx) => (
+                    <div
+                        key={idx}
+                        className="flex-1 h-1 bg-[#686868] bg-opacity-30 rounded overflow-hidden"
+                    >
+                        {/* Seen */}
+                        {idx < currentIndex && <div className="h-full bg-white" />}
+                        {/* Active */}
+                        {idx === currentIndex && (
+                            <div
+                                className="h-full bg-white story-progress"
+                                style={{ animationDuration: "10s" }}
+                            />
+                        )}
+                        {/* Future: boş */}
+                    </div>
+                ))}
+            </div>
+
+            {/* FOTOĞRAF ve overlay katmanları */}
+            <div className="relative w-[90vw] h-[90vh] flex items-center justify-center">
+                <div
+                    onClick={onPrev}
+                    className="absolute left-0 top-0 w-1/2 h-full cursor-pointer z-10"
+                />
+                <div
+                    onClick={onNext}
+                    className="absolute right-0 top-0 w-1/2 h-full cursor-pointer z-10"
+                />
+                <img
+                    src={images[currentIndex]}
+                    alt={`Image ${currentIndex + 1}`}
+                    className="max-w-full max-h-full object-contain z-0"
+                />
+            </div>
         </div>,
         document.body
     );
 };
 
-const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
+
+
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({projects = []}) => {
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
     const [currentProjectImages, setCurrentProjectImages] = useState<string[]>([]);
     const scrollRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -81,8 +119,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
     const scroll = (projectId: string | number, direction: 'left' | 'right') => {
         const ref = scrollRefs.current[String(projectId)];
         if (!ref) return;
-        const { clientWidth, scrollLeft } = ref;
-        ref.scrollTo({ left: scrollLeft + (direction === 'left' ? -clientWidth : clientWidth), behavior: 'smooth' });
+        const {clientWidth, scrollLeft} = ref;
+        ref.scrollTo({left: scrollLeft + (direction === 'left' ? -clientWidth : clientWidth), behavior: 'smooth'});
     };
 
     if (projects.length === 0) {
@@ -113,7 +151,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
                                         rel="noopener noreferrer"
                                         className="flex items-center space-x-2 text-blue-600 hover:underline"
                                     >
-                                        <img src={link.icon} alt={`${link.name}`} className="w-8 h-8" />
+                                        <img src={link.icon} alt={`${link.name}`} className="w-8 h-8"/>
                                     </a>
                                 ))}
                             </div>
@@ -129,9 +167,11 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects = [] }) => {
                             ‹
                         </button>
                         <div
-                            ref={(el) => { scrollRefs.current[String(proj.id)] = el; }}
+                            ref={(el) => {
+                                scrollRefs.current[String(proj.id)] = el;
+                            }}
                             className="flex overflow-x-auto space-x-4 scroll-smooth"
-                            style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
+                            style={{msOverflowStyle: 'none', scrollbarWidth: 'none'}}
                         >
                             {proj.images.map((src, idx) => (
                                 <img
@@ -174,8 +214,12 @@ export const sampleProjects: Project[] = [
         description: 'Designed to simplify warehouse stock management, this panel features real-time KPI cards for instant inventory tracking, interactive filters and product update forms for fast operations, and a responsive interface optimized for both desktop and mobile devices. The project already includes wireframes, high-fidelity mockups, and design system components; I am now preparing to move into the development phase by building a React + Tailwind-based prototype.',
         images: ['projects/shelvia/LoginScreen.png', 'projects/shelvia/WarehouseList.png', 'projects/shelvia/WarehouseDetail.png', 'projects/shelvia/ProductList.png'],
         links: [
-            { icon: 'icons/github.svg', name: 'GitHub', url: 'https://github.com/xhyasar/AspireLearning' },
-            { icon: 'icons/figma.svg', name: 'Figma', url: 'https://www.figma.com/design/W3Hp5fvj5673IR97RD5vdc/Shelvia-Warehouse-Management?node-id=2-276&p=f&t=oC6wM2v8FwsOwCHW-0'},
+            {icon: 'icons/github.svg', name: 'GitHub', url: 'https://github.com/xhyasar/AspireLearning'},
+            {
+                icon: 'icons/figma.svg',
+                name: 'Figma',
+                url: 'https://www.figma.com/design/W3Hp5fvj5673IR97RD5vdc/Shelvia-Warehouse-Management?node-id=2-276&p=f&t=oC6wM2v8FwsOwCHW-0'
+            },
         ]
     },
     {
